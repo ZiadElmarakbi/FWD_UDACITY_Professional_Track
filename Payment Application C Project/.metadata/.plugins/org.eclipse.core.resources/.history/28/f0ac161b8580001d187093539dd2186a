@@ -1,0 +1,113 @@
+
+#include "Application.h"
+#include "../Server/Server.h"
+#include<time.h>
+
+#define appStart main
+
+extern ST_accountsDB_t accountsDB[DBMAX];
+extern uint32_t Account_Num;
+
+// Taking Global Instances From the Defined Data Types
+ST_cardData_t CardHolderObj, *CardData  = &CardHolderObj;
+ST_terminalData_t TerminalObj, *TermData  = &TerminalObj;;
+ST_transaction TransactionObj, *TransData = &TransactionObj;
+
+int appStart(){
+
+	uint32_t Choice;
+
+	if(setMaxAmount(TermData, 3000) == INVALID_AMOUNT){return ERROR;}
+
+	getTransactionDate(TermData);
+	ATM_WELCOME();
+
+	// Get User Data
+	if(getCardHolderName(CardData) == WRONG_NAME){return ERROR;}
+	if(getCardExpiryDate(CardData) == WRONG_EXP_DATE){return ERROR;} // Format Error
+	if(isCardExpired(&CardHolderObj,&TerminalObj) == EXPIRED_CARD){return ERROR;}
+	if(getCardPAN(CardData) == WRONG_PAN){return ERROR;}
+
+	TransData->cardHolderData = CardHolderObj;
+	if(isValidAccount(CardData, accountsDB) == ACCOUNT_NOT_FOUND){return ERROR;}
+
+	//	while(1){
+
+	DPRINTF("\n1. Withdraw a Cash Amount\n");
+	DPRINTF("2. Check Available Balance\n")
+	DPRINTF("3. Deposit Cash\n");
+	DPRINTF("\nEnter Your Option:");
+	scanf("%d", &Choice);
+
+	switch(Choice){
+
+	case 1:
+		if(getTransactionAmount(TermData) == INVALID_AMOUNT){return ERROR;}
+		if(isBelowMaxAmount(TermData) == EXCEED_MAX_AMOUNT){return ERROR;}
+		TransData->terminalData = TerminalObj;
+		if(isAmountAvailable(&TransData->terminalData, accountsDB) == LOW_BALANCE){return ERROR;}
+		accountsDB[Account_Num].balance -= TransData->terminalData.transAmount;
+		DPRINTF("\nPlease Collect the Cash. Thank you.\n");
+		break;
+
+	case 2:
+		DPRINTF("\nYour Balance is: %.2f\n", accountsDB[Account_Num].balance);
+		break;
+
+
+
+	default:
+		break;
+	}
+}
+//	TransData->cardHolderData = CardHolderObj;
+//	TransData->terminalData = TerminalObj;
+//	EN_transStat_t Validamount;
+//	EN_transStat_t AccountState = isBlockedAccount(accountsDB);
+//	EN_transStat_t ValidAccount;
+
+//	switch(RECEIVE){
+//
+//	case APPROVED:
+//		DPRINTF("\nTransaction was successful, Thank You !!\n");
+//		//listSavedTransactions();
+//		break;
+//
+//	case FRAUD_CARD:
+//		DPRINTF("Invalid Card\n");
+//		saveTransaction(TransData);
+//		// listSavedTransactions();
+//		break;
+//
+//	case DECLINED_INSUFFECIENT_FUND:
+//		DPRINTF("\nTransaction Declined Due To Insufficient Fund\n");
+//		saveTransaction(TransData);
+//		// listSavedTransactions();
+//		break;
+//
+//	case DECLINED_STOLEN_CARD:
+//		DPRINTF("\nTransaction Declined This Card Is Stolen, Please Return It To The Nearest Branch\n");
+//		saveTransaction(TransData);
+//		// listSavedTransactions();
+//		break;
+//
+//	case INTERNAL_SERVER_ERROR:
+//		DPRINTF("\nTransaction Declined Due To Server Error, Please Try Again Later .. ");
+//		saveTransaction(TransData);
+//		// listSavedTransactions();
+//		break;
+//
+//	default:
+//		break;
+//	}
+//}
+
+void ATM_WELCOME(void){
+
+	DPRINTF("###################################################\n");
+	DPRINTF("\t\tWELCOME TO FWD BANK\n");
+	DPRINTF("###################################################\n");
+	DPRINTF("Transaction Date: %s", TermData->transactionDate);
+	DPRINTF("Note: Your Maximum Withdrawal Limit/day is %.2f\n\n", TermData->maxTransAmount);
+	DPRINTF("###################################################\n\n");
+}

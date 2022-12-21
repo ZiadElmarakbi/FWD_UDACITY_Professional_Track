@@ -1,0 +1,107 @@
+/*
+ * Terminal.c
+ *
+ *  Created on: Dec 4, 2022
+ *      Author: asus
+ */
+
+#include "Terminal.h"
+
+ST_terminalData_t UserTerminal[5];
+
+int main(void) {
+
+	getCardExpiryDate(UserCard);
+	getTransactionDate(UserTerminal);
+	isCardExpired(UserCard,UserTerminal);
+
+	return 0;
+}
+
+/* Assuming that the total number of days in a month are 31
+   and the total number of months is 12 */
+EN_terminalError_t getTransactionDate(ST_terminalData_t *termData){
+
+	uint8_t *p1, *p2, *p3, *p4,  Length;
+
+	// Months
+	p1 = &(termData->transactionDate[3]);
+	p2 = &(termData->transactionDate[4]);
+
+	// Days
+	p3 = &(termData->transactionDate[0]);
+	p4 = &(termData->transactionDate[1]);
+
+	DPRINTF("Enter the Current Date in DD/MM/YYYY format:\n");
+	gets((char*)termData[0].transactionDate);
+	Length = strlen((const char*)termData[0].transactionDate);
+
+	if(Length == 0) {
+
+		DPRINTF("You Didn't Enter Anything\n");
+		return WRONG_DATE;
+	}
+
+	else if(Length < 10){
+
+		DPRINTF("Please Enter the format in DD/MM/YYYY\n");
+		return WRONG_DATE;
+	}
+
+	else{
+
+		if(((*p1 > '1') || ((*p1 == '1') && (*p2 > '2')))){
+
+			DPRINTF("Months Format is Incorrect\n");
+			return WRONG_DATE;
+		}
+
+		if(((*p3 > '3') || ((*p3 == '3') && (*p4 > '1')))){
+
+			DPRINTF("Days Format is Incorrect\n");
+			return WRONG_DATE;
+		}
+
+		DPRINTF("CORRECT FORMAT\n");
+		return CARD_OK ;
+	}
+}
+
+EN_terminalError_t isCardExpired(ST_cardData_t *cardData, ST_terminalData_t *termData){
+
+	uint8_t *p1, *p2, *p3, *p4, *p5, *p6, *p7, *p8;
+
+	p1 = &(cardData->cardExpirationDate[0]);
+	p2 = &(cardData->cardExpirationDate[1]);
+	p3 = &(cardData->cardExpirationDate[3]);
+	p4 = &(cardData->cardExpirationDate[4]);
+
+	p5 = &(termData->transactionDate[3]);
+	p6 = &(termData->transactionDate[4]);
+	p7 = &(termData->transactionDate[8]);
+	p8 = &(termData->transactionDate[9]);
+
+	if((*p1 >= *p5) && (*p4 >= *p8)){
+		printf("Card is Still Valid\n");
+		return TERMINAL_OK ;
+	}
+
+	else if((*p1 < *p5) && (*p4 <= *p8)){
+		printf("Card is Expired !!\n");
+		return EXPIRED_CARD;
+	}
+
+
+	else {
+		printf("Your Card is Expired, Please Visit the Nearest Branch\n");
+		return EXPIRED_CARD;
+	}
+}
+
+//EN_terminalError_t getTransactionAmount(ST_terminalData_t *termData);
+//EN_terminalError_t isBelowMaxAmount(ST_terminalData_t *termData);
+//EN_terminalError_t setMaxAmount(ST_terminalData_t *termData, float maxAmount);
+//EN_terminalError_t isValidCardPAN(ST_cardData_t *cardData); // Optional
+//
+//
+

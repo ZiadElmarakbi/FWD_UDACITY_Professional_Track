@@ -1,0 +1,367 @@
+21:45:50 **** Clean-only build of configuration Debug for project Payment Application ****
+rm -rf Server/Server.d Application/Application.o Server/Server.o Application/Application.d Card/Card.o Terminal/Terminal.d Terminal/Terminal.o Card/Card.d "Payment Application.exe" 
+rm: cannot unlink `Payment Application.exe': Permission denied
+21:45:51 **** Rebuild of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Application\\Application.o" "..\\Application\\Application.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Card\\Card.o" "..\\Card\\Card.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Terminal\\Terminal.o" "..\\Terminal\\Terminal.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+d:/embedded sw engineering/mingw_toolchain/bin/../lib/gcc/x86_64-w64-mingw32/12.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot open output file Payment Application.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+21:46:07 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Terminal\\Terminal.o" "..\\Terminal\\Terminal.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+21:47:38 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Terminal\\Terminal.o" "..\\Terminal\\Terminal.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+21:48:04 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Terminal\\Terminal.o" "..\\Terminal\\Terminal.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+21:48:59 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Terminal\\Terminal.o" "..\\Terminal\\Terminal.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+d:/embedded sw engineering/mingw_toolchain/bin/../lib/gcc/x86_64-w64-mingw32/12.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot open output file Payment Application.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+21:52:43 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Terminal\\Terminal.o" "..\\Terminal\\Terminal.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+21:54:11 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Terminal\\Terminal.o" "..\\Terminal\\Terminal.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+21:55:09 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Terminal\\Terminal.o" "..\\Terminal\\Terminal.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+21:56:02 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Terminal\\Terminal.o" "..\\Terminal\\Terminal.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+21:56:28 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Terminal\\Terminal.o" "..\\Terminal\\Terminal.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+21:59:04 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Terminal\\Terminal.o" "..\\Terminal\\Terminal.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+21:59:17 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Terminal\\Terminal.o" "..\\Terminal\\Terminal.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+21:59:34 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Terminal\\Terminal.o" "..\\Terminal\\Terminal.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+22:00:17 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Terminal\\Terminal.o" "..\\Terminal\\Terminal.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+22:00:36 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Terminal\\Terminal.o" "..\\Terminal\\Terminal.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+22:01:24 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Terminal\\Terminal.o" "..\\Terminal\\Terminal.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+22:01:31 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Terminal\\Terminal.o" "..\\Terminal\\Terminal.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+22:01:37 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Terminal\\Terminal.o" "..\\Terminal\\Terminal.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+22:01:47 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Terminal\\Terminal.o" "..\\Terminal\\Terminal.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+22:02:08 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Terminal\\Terminal.o" "..\\Terminal\\Terminal.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+22:04:44 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Terminal\\Terminal.o" "..\\Terminal\\Terminal.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+d:/embedded sw engineering/mingw_toolchain/bin/../lib/gcc/x86_64-w64-mingw32/12.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: d:/embedded sw engineering/mingw_toolchain/bin/../lib/gcc/x86_64-w64-mingw32/12.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libmingw32.a(lib64_libmingw32_a-crt0_c.o):crt0_c.c:(.text.startup+0x2e): undefined reference to `WinMain'
+collect2.exe: error: ld returned 1 exit status
+22:06:18 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+22:09:45 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+22:10:49 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+22:10:59 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+22:11:21 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+22:12:50 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+22:13:02 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+22:13:39 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+22:14:19 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+22:15:40 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+22:17:32 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+22:17:47 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+d:/embedded sw engineering/mingw_toolchain/bin/../lib/gcc/x86_64-w64-mingw32/12.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot open output file Payment Application.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+22:17:52 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+22:23:55 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+22:25:09 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+22:25:22 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+22:25:45 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+22:27:17 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+22:27:27 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+22:27:50 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+22:28:39 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+d:/embedded sw engineering/mingw_toolchain/bin/../lib/gcc/x86_64-w64-mingw32/12.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot open output file Payment Application.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+22:28:45 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+22:29:25 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+d:/embedded sw engineering/mingw_toolchain/bin/../lib/gcc/x86_64-w64-mingw32/12.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot open output file Payment Application.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+22:29:31 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+22:33:56 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+22:34:24 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+22:34:39 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+22:34:49 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+22:35:43 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+22:35:50 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+22:36:18 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+22:36:59 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+22:43:24 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Application\\Application.o" "..\\Application\\Application.c" 
+..\Application\Application.c:13:1: error: unknown type name 'Taking'
+   13 | Taking Global Instances From the Defined Data Types
+      | ^~~~~~
+..\Application\Application.c:13:15: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'Instances'
+   13 | Taking Global Instances From the Defined Data Types
+      |               ^~~~~~~~~
+..\Application\Application.c:13:15: error: unknown type name 'Instances'
+..\Application\Application.c: In function 'main':
+..\Application\Application.c:31:30: error: 'CardData' undeclared (first use in this function)
+   31 |         if(getCardHolderName(CardData) == WRONG_NAME)
+      |                              ^~~~~~~~
+..\Application\Application.c:31:30: note: each undeclared identifier is reported only once for each function it appears in
+..\Application\Application.c:43:37: error: 'CardHolderObj' undeclared (first use in this function)
+   43 |         TransData->cardHolderData = CardHolderObj;
+      |                                     ^~~~~~~~~~~~~
+22:43:36 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Application\\Application.o" "..\\Application\\Application.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+22:46:45 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Application\\Application.o" "..\\Application\\Application.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+22:47:32 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Application\\Application.o" "..\\Application\\Application.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+22:51:29 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Terminal\\Terminal.o" "..\\Terminal\\Terminal.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Card\\Card.o" "..\\Card\\Card.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+22:55:17 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+23:11:04 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+23:13:22 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+23:15:05 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+23:16:58 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+23:18:33 **** Incremental Build of configuration Debug for project Payment Application ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "Server\\Server.o" "..\\Server\\Server.c" 
+gcc -o "Payment Application.exe" "Application\\Application.o" "Card\\Card.o" "Server\\Server.o" "Terminal\\Terminal.o" 
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application
+Info: Nothing to build for Payment Application

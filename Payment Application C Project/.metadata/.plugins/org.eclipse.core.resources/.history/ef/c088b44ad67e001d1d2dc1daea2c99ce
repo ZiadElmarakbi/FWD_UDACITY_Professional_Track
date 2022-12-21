@@ -1,0 +1,120 @@
+/*
+ ============================================================================
+ Name        : Payment.c
+ Author      :
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+#include "Application.h"
+#include "../Card/Card.h"
+#include "../Terminal/Terminal.h"
+#include "../Server/Server.h"
+
+#define appStart main
+
+// Taking Global Instances From the Defined Data Types
+
+	ST_cardData_t CardHolderObj;
+	ST_cardData_t *CardData  = &CardHolderObj;
+	ST_terminalData_t TerminalObj;
+	ST_terminalData_t  *TermData  = &TerminalObj;
+
+int appStart(){
+
+	ATM_WELCOME();
+
+	if(getCardHolderName(CardData) == WRONG_NAME){
+		DPRINTF("You Entered a Wrong Name\n");
+		return ERROR;
+	}
+
+	if(getCardExpiryDate(CardData) == WRONG_EXP_DATE){
+		DPRINTF("Wrong Expiry Data Format\n");
+		return ERROR;
+	}
+
+	if(getCardPAN(CardData) == WRONG_PAN){
+		DPRINTF("Wrong PAN !\n");
+		return ERROR;
+	}
+
+
+	if (getTransactionDate(TermData) == WRONG_DATE)
+	{
+		DPRINTF("Date Incorrect \n");
+		return ERROR;
+	}
+
+	if (isCardExpired(&CardHolderData, TermData) == EXPIRED_CARD)
+	{
+		DPRINTF("Your Card is Expired, Refer To The Bank To Get Your New Card\n");
+		return ERROR;
+	}
+
+	if (setMaxAmount(TermData, 3000.0) == INVALID_MAX_AMOUNT)
+	{
+		DPRINTF("Max Amount Invalid\n");
+		return ERROR;
+	}
+
+	if (getTransactionAmount(TermData) == INVALID_AMOUNT)
+	{
+		DPRINTF("Invalid Amount !, Please Enter A Valid Amount");
+		return ERROR;
+	}
+
+	if (isBelowMaxAmount(TermData) == EXCEED_MAX_AMOUNT)
+	{
+		DPRINTF("Exceeded Max Amount !, You Can't Withdraw More Than The Max Amount Mentioned Above");
+		return ERROR;
+	}
+
+	ST_transaction    TransactionObj, *TransData = &TransactionObj;
+
+	// Copying all the Entered Data Into the Transaction Data Type
+	TransData->cardHolderData = CardHolderObj;
+	TransData->terminalData = TerminalObj;
+	EN_transStat_t Receive_Trans = recieveTransactionData(TransData);
+
+	if(Receive_Trans == APPROVED){
+		DPRINTF("Transaction Successfull\n");
+		return NO_ERROR;
+	}
+
+	if(Receive_Trans == FRAUD_CARD){
+		saveTransaction(TransData);
+		DPRINTF("Invalid Card\n");
+		return ERROR;
+	}
+
+	if(Receive_Trans == DECLINED_INSUFFECIENT_FUND){
+		DPRINTF("No Sufficient Funds\n");
+		saveTransaction(TransData);
+		return ERROR;
+	}
+
+	if(Receive_Trans == DECLINED_STOLEN_CARD){
+		DPRINTF("Card Stolen\n");
+		saveTransaction(TransData);
+		return ERROR;
+	}
+
+	if(Receive_Trans == INTERNAL_SERVER_ERROR){
+		DPRINTF("Server Error Occured, Please Try Again Later\n");
+		saveTransaction(TransData);
+		return ERROR;
+	}
+
+	listSavedTransactions();
+	return NO_ERROR;
+}
+
+
+void ATM_WELCOME(void){
+
+	DPRINTF("###################################################\n");
+	DPRINTF("\t\tWELCOME TO THE BANK\n");
+	DPRINTF("###################################################\n\n");
+}

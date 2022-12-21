@@ -1,0 +1,118 @@
+/*
+ * Terminal.c
+ *
+ *  Created on: Dec 4, 2022
+ *      Author: asus
+ */
+
+#include "Terminal.h"
+#include<time.h>
+
+time_t t = time(NULL);
+struct tm tm = *localtime(&t);
+
+//ST_terminalData_t x, *X = &x;
+//ST_cardData_t y, *Y = &y;
+
+//int main(){
+//
+//	getCardExpiryDate(Y);
+//	getTransactionDate(X);
+//	isCardExpired(Y, X);
+//
+//	return 0;
+//}
+
+/* Assuming that the total number of days in a month are 31
+   and the total number of months is 12 */
+EN_terminalError_t getTransactionDate(ST_terminalData_t *termData){
+
+//	time_t t = time(NULL);
+//	struct tm tm = *localtime(&t);
+
+	sprintf((char *)termData->transactionDate, "%d/%02d/%02d\n", tm.tm_mday, tm.tm_mon + 1,tm.tm_year + 1900);
+	return CARD_OK ;
+}
+
+EN_terminalError_t isCardExpired(ST_cardData_t *cardData, ST_terminalData_t *termData){
+
+	uint8_t *Card_M1, *Card_M2, *Card_Y, *SYS_M1, *SYS_M2, *SYS_Y;
+
+	Card_M1 = &(cardData->cardExpirationDate[0]);
+	Card_M2 = &(cardData->cardExpirationDate[1]);
+	Card_Y = &(cardData->cardExpirationDate[4]);
+
+	SYS_M1 = &(termData->transactionDate[3]);
+	SYS_M2 = &(termData->transactionDate[4]);
+	SYS_Y = &(termData->transactionDate[9]);
+
+	// || Operator wasn't used due to Optimization
+	if(*Card_Y > *SYS_Y){
+		DPRINTF("Card is Still Valid\n");
+		return TERMINAL_OK ;
+	}
+
+	if(*Card_Y < *SYS_Y){
+		DPRINTF("Card is Expired !\n");
+		return EXPIRED_CARD ;
+	}
+
+	if(*Card_Y == *SYS_Y){
+
+		if(*Card_M1 > *SYS_M1){
+			DPRINTF("Card is Still Valid\n");
+			return TERMINAL_OK ;
+		}
+
+		if((*Card_M1 == *SYS_M1) && (*Card_M2 == *SYS_M2)){
+			DPRINTF("Card is Still Valid\n");
+			return TERMINAL_OK ;
+		}
+
+		if(*Card_M1 < *SYS_M1){
+			DPRINTF("Card is Expired !!\n");
+			return EXPIRED_CARD;
+		}
+	}
+
+	// return TERMINAL_OK;
+}
+
+EN_terminalError_t getTransactionAmount(ST_terminalData_t *termData){
+
+	DPRINTF("Enter the transaction amount:\n");
+	scanf("%f",&(termData->transAmount));
+
+	if(termData->transAmount <= 0){
+		DPRINTF("Amount Invalid !\n");
+		return INVALID_AMOUNT;
+	}
+
+	// DPRINTF("Amount Correct !\n");
+	return TERMINAL_OK;
+}
+
+EN_terminalError_t isBelowMaxAmount(ST_terminalData_t *termData){
+
+	// termData->maxTransAmount = 3000.4;
+	if((termData->transAmount) > (termData->maxTransAmount)){
+		DPRINTF("You Exceeded the Maximum limit/day\n");
+		return EXCEED_MAX_AMOUNT;
+	}
+	// DPRINTF("Amount Allowable!\n");
+	return TERMINAL_OK;
+}
+
+EN_terminalError_t setMaxAmount(ST_terminalData_t *termData, float maxAmount){
+
+	termData->maxTransAmount = maxAmount;
+
+	if(termData->maxTransAmount <= 0){
+		DPRINTF("Max Limit Not allowable\n");
+		return INVALID_AMOUNT;
+	}
+
+	DPRINTF("MAX limit allowable\n");
+	return TERMINAL_OK;
+}
+

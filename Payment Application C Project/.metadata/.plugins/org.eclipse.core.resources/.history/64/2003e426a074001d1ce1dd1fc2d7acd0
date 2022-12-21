@@ -1,0 +1,39 @@
+/*
+ * Card.c
+ *
+ *  Created on: Dec 4, 2022
+ *      Author: asus
+ */
+
+#include "Card.h"
+#include <stdlib.h>
+
+EN_cardError_t getCardHolderName(ST_cardData_t *cardData){
+
+	DPRINTF("Enter the CardHolder Name:");
+	gets(cardData->cardHolderName);
+
+	char Length = strlen((const char*)cardData->cardHolderName);
+
+	if(Length == 0 || Length < 20 || Length > 24){
+		DPRINTF("NOT OK");
+		return WRONG_NAME ;
+	}
+
+	else{
+		DPRINTF("OK");
+		return CARD_OK;
+	}
+
+	return 0 ;
+}
+
+
+int main(void) {
+
+	ST_cardData_t X;
+
+	getCardHolderName(&X);
+
+	return 0 ;
+}

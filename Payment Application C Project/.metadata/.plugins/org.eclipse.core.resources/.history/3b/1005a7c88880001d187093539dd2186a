@@ -1,0 +1,170 @@
+
+#include "Application.h"
+#include "../Server/Server.h"
+#include<time.h>
+
+#define appStart main
+
+extern ST_accountsDB_t accountsDB[DBMAX];
+extern uint32_t Account_Num;
+extern EN_transStat_t Transaction_State;
+
+// Taking Global Instances From the Defined Data Types
+ST_cardData_t CardHolderObj, *CardData  = &CardHolderObj;
+ST_terminalData_t TerminalObj, *TermData  = &TerminalObj;;
+ST_transaction TransactionObj, *TransData = &TransactionObj;
+
+
+int appStart(){
+
+	uint32_t Choice;
+	uint8_t Loop;
+
+	// Set a Maximum Limit of Payment Per Card
+	if(setMaxAmount(TermData, 3000) == INVALID_AMOUNT)
+	{return ERROR;}
+
+	getTransactionDate(TermData);
+	ATM_WELCOME();
+
+	// Get the USer's Card Data & Check It's Validity From the Server
+	if(getCardHolderName(CardData) == WRONG_NAME)
+	{return ERROR;}
+
+	if(getCardExpiryDate(CardData) == WRONG_EXP_DATE)
+	{return ERROR;} // Format Error
+
+	if(isCardExpired(&CardHolderObj,&TerminalObj) == EXPIRED_CARD)
+	{return ERROR;}
+
+	if(getCardPAN(CardData) == WRONG_PAN)
+	{return ERROR;}
+
+	TransData->cardHolderData = CardHolderObj;
+
+	if(isValidAccount(CardData, accountsDB) == ACCOUNT_NOT_FOUND)
+	{return ERROR;}
+	if(isBlockedAccount(accountsDB) == BLOCKED_ACCOUNT)
+	{return ERROR;}
+
+	while(Loop == 'y' || Loop == 'Y'){
+
+		DPRINTF("\n1. Pay by Visa Card\n");
+		DPRINTF("2. Check Available Balance\n")
+		DPRINTF("3. Exit the Terminal\n");
+		DPRINTF("\nSelect Your Choice:");
+		scanf("%d", &Choice);
+
+		switch(Choice){
+
+		case 1:
+
+			if(getTransactionAmount(TermData) == INVALID_AMOUNT)
+			{return ERROR;}
+
+			if(isBelowMaxAmount(TermData) == EXCEED_MAX_AMOUNT)
+			{return ERROR;}
+
+			TransData->terminalData = TerminalObj;
+			if(isAmountAvailable(&TransData->terminalData, accountsDB) == LOW_BALANCE)
+			{return ERROR;}
+
+			accountsDB[Account_Num].balance -= TransData->terminalData.transAmount;
+			Transaction_State = APPROVED;
+			DPRINTF("\nPlease Collect the Cash. Thank you.\n");
+			break;
+
+		case 2:
+			DPRINTF("\nYour Balance is: %.2f\n", accountsDB[Account_Num].balance);
+			break;
+
+		case 3:
+			exit(1);
+			break;
+
+		default:
+			break;
+		}
+
+		switch(Transaction_State){
+
+		case APPROVED:
+			strcpy((char *)TransData->transStateENUM, (const char*)"APPROVED");
+			break;
+
+		case FRAUD_CARD:
+			strcpy((char *)TransData->transStateENUM, (const char*)"FRAUD_CARD");
+			break;
+
+		case DECLINED_INSUFFECIENT_FUND:
+			strcpy((char *)TransData->transStateENUM, (const char*)"DECLINED_INSUFFECIENT_FUND");
+			break;
+
+		case DECLINED_STOLEN_CARD:
+			strcpy((char *)TransData->transStateENUM, (const char*)" DECLINED_STOLEN_CARD");
+			break;
+
+		default:
+			break;
+		}
+
+		if(saveTransaction(TransData) == SAVING_FAILED)
+		{return ERROR;}
+
+		DPRINTF("\nDo You Want To Make Any Other Transaction Y/N ?");
+		scanf("%c", &Loop);
+	}
+
+	return NO_ERROR;
+}
+//	TransData->cardHolderData = CardHolderObj;
+//	TransData->terminalData = TerminalObj;
+//	EN_transStat_t Validamount;
+//	EN_transStat_t AccountState = isBlockedAccount(accountsDB);
+//	EN_transStat_t ValidAccount;
+
+//	switch(RECEIVE){
+//
+//	case APPROVED:
+//		DPRINTF("\nTransaction was successful, Thank You !!\n");
+//		//listSavedTransactions();
+//		break;
+//
+//	case FRAUD_CARD:
+//		DPRINTF("Invalid Card\n");
+//		saveTransaction(TransData);
+//		// listSavedTransactions();
+//		break;
+//
+//	case DECLINED_INSUFFECIENT_FUND:
+//		DPRINTF("\nTransaction Declined Due To Insufficient Fund\n");
+//		saveTransaction(TransData);
+//		// listSavedTransactions();
+//		break;
+//
+//	case DECLINED_STOLEN_CARD:
+//		DPRINTF("\nTransaction Declined This Card Is Stolen, Please Return It To The Nearest Branch\n");
+//		saveTransaction(TransData);
+//		// listSavedTransactions();
+//		break;
+//
+//	case INTERNAL_SERVER_ERROR:
+//		DPRINTF("\nTransaction Declined Due To Server Error, Please Try Again Later .. ");
+//		saveTransaction(TransData);
+//		// listSavedTransactions();
+//		break;
+//
+//	default:
+//		break;
+//	}
+//}
+
+void ATM_WELCOME(void){
+
+	DPRINTF("###################################################\n");
+	DPRINTF("\t\tWELCOME TO FWD BANK Terminal\n");
+	DPRINTF("###################################################\n");
+	DPRINTF("Transaction Date: %s", TermData->transactionDate);
+	DPRINTF("Note: Maximum Payment Limit by 1 Card is %.2f\n\n", TermData->maxTransAmount);
+	DPRINTF("###################################################\n\n");
+}
